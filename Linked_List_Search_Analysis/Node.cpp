@@ -8,11 +8,4 @@ Node::Node(int key, int data) {
 }
 
 Node::~Node() {
-	if (Next == nullptr) {
-		Prev->setNext(nullptr);
-		Prev = nullptr;
-		delete Next;
-		delete Prev;
-	}
-
 }
