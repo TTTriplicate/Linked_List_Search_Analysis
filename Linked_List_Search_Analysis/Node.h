@@ -16,6 +16,8 @@ public:
 	int getKey();
 	Node* getPrev();
 	Node* getNext();
+	void setNext(Node*);
+	void setPrev(Node*);
 
 	bool operator> (const Node& a);
 	bool operator< (const Node& a);
