@@ -5,6 +5,7 @@ Node::Node() {};
 Node::Node(int key, int data) {
 	Key = key;
 	Data = data;
+	Next = nullptr;
 }
 
 Node::Node(int key, int data, Node* next) {

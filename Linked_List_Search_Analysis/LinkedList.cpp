@@ -7,32 +7,34 @@ LinkedList::LinkedList() {
 
 LinkedList::~LinkedList() {};
 
-void LinkedList::insert(Node newNode) {
+void LinkedList::insert(Node* newNode) {
 	if (Head == nullptr) {
-		Head = &newNode;
+		Head = newNode;
 	}
-	else if (*(Head) > newNode) {
-		newNode.setNext(Head);
-		Head = &newNode;
+	else if (*(Head) > *(newNode)) {
+		newNode->setNext(Head);
+		Head = newNode;
 	}
 	else if (Head->getNext() == nullptr) {
-		Head->setNext(&newNode);
+		Head->setNext(newNode);
 	}
 	else {
-		Node* next = Head->getNext();
-		while (*(next) < newNode) {
-			if (next->getNext() == nullptr) {
-				next->setNext(&newNode);
-				break;
-			}
+		Node* next = Head;
+		while (*(next->getNext()) < *(newNode)) {
 			next = next->getNext();
+			if (next->getNext() == nullptr) {
+				next->setNext(newNode);
+				return;
+			}
+
 		}
-		next->setNext(&newNode);
+		newNode->setNext(next->getNext());
+		next->setNext(newNode);
 	}
 }
 
 void LinkedList::newNode(int key, int data) {
-	Node newNode = Node(key, data);
+	Node* newNode = new Node(key, data);
 	insert(newNode);
 }
 

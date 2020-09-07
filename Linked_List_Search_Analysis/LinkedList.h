@@ -5,7 +5,7 @@
 class LinkedList {
 private:
 	Node* Head;
-	void insert(Node newNode);
+	void insert(Node* newNode);
 	Node* search(int key);
 public:
 	LinkedList();

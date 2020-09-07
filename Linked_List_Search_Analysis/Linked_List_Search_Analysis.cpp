@@ -1,6 +1,7 @@
 #include <iostream>
 #include <cstdlib>
 #include <ctime>
+#include <algorithm>
 #include "LinkedList.h"
 
 
@@ -23,6 +24,8 @@ int main()
     for (int i : a) {
         list.newNode(++key, i);
     }
+
+ //   std::sort(a, SIZE);
 
     list.print();
 
