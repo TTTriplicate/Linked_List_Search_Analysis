@@ -139,11 +139,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="D:\Code\DSA_HW1\DSA_HW1\IDGenerator.cpp" />
     <ClCompile Include="LinkedList.cpp" />
     <ClCompile Include="Linked_List_Search_Analysis.cpp" />
     <ClCompile Include="Node.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="D:\Code\DSA_HW1\DSA_HW1\IDGenerator.h" />
     <ClInclude Include="LinkedList.h" />
     <ClInclude Include="Node.h" />
   </ItemGroup>
