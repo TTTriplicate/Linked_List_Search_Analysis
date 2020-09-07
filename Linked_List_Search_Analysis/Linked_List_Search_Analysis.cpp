@@ -21,11 +21,15 @@ int main()
         std::cout << a[i] << std::endl;
     }
 
+    std::cout << std::endl;
+
     for (int i : a) {
         list.newNode(++key, i);
     }
 
- //   std::sort(a, SIZE);
+    std::sort(a, a+SIZE);
+    for (int i : a)
+        std::cout << i << std::endl;
 
     list.print();
 
