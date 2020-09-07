@@ -46,6 +46,6 @@ bool Node::operator>(const Node& a) {
 	return Data > a.Data;
 }
 
-bool Node::operator<(const Node& a) {
+bool Node::operator==(const Node& a) {
 	return Data == a.Data;
 }

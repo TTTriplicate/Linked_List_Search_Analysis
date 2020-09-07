@@ -24,18 +24,12 @@
     <ClCompile Include="Node.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="D:\Code\DSA_HW1\DSA_HW1\IDGenerator.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="LinkedList.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Node.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Code\DSA_HW1\DSA_HW1\IDGenerator.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
