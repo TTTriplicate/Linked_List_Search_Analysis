@@ -11,7 +11,7 @@ public:
 	LinkedList();
 	~LinkedList();
 	void newNode(int key, int data);
-	Node* find(int key);
+	Node* search(int key);
 	void remove(int key);
 	void print();
 };

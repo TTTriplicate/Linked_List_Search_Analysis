@@ -71,7 +71,7 @@ int main()
         Node* number;
         auto start = std::chrono::high_resolution_clock::now();
         try {
-            number = list.find(input);
+            number = list.search(input);
         }
         catch (std::invalid_argument e) {
             std::cout << e.what() << std::endl;
@@ -95,14 +95,14 @@ int main()
             and each successive iteration has half as many again until there 
             is only the correct answer.
             n/2 -> (n/2)/2 -> ((n/2)/2)/2 -> log_2(n) maximum iterations*/
-            guess = a[(high + low) / 2];
-            if (guess > toFind) {
-                high = (high + low) / 2;
+            guess = a[(high + low) / 2];//4 operations
+            if (guess > toFind) {       //1 operation
+                high = (high + low) / 2;//3 operations
             }
             else {
-                low = (high + low) / 2;
+                low = (high + low) / 2;//3 operations
             }
-        }
+        }//totals to 9(log_2 n) + 7
 
         end = std::chrono::high_resolution_clock::now();
         duration = std::chrono::duration_cast<std::chrono::nanoseconds>(end - start).count();

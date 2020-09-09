@@ -59,18 +59,23 @@ void LinkedList::print() {
 	}
 }
 
-Node* LinkedList::find(int key) {
+Node* LinkedList::search(int key) {
+	
 	Node* currentNode = Head;
-	while (currentNode != nullptr) {
-		if (currentNode->getKey() == key) {
+	while (currentNode != nullptr) {//1 operation
+		/*following the setup, this makes one comparison(with one access)
+		per iteration, and continues through the items sequentially until
+		the correct item is found.  Worst-case, this runs N times; best case, 1;
+		on average, N/2.  This is still bounded by N.*/
+		if (currentNode->getKey() == key) {//2 operations
 			return currentNode;
 		}
 		else {
-			currentNode = currentNode->getNext();
+			currentNode = currentNode->getNext();//2 operations
 		}
 	}
 	throw std::invalid_argument("No item found with key " + std::to_string(key));
-}
+}//totals 5N + 1 operations
 
 Node* LinkedList::findPreceding(int key) {
 	Node* currentNode = Head;
@@ -93,7 +98,7 @@ void LinkedList::remove(int key) {
 	try {
 		toDelete = this->findPreceding(key);
 	}
-	catch (std::runtime_error e) {
+	catch (std::runtime_error e) {//found at head
 		toDelete = Head;
 		Head = Head->getNext();
 		delete toDelete;

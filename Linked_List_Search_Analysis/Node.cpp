@@ -39,6 +39,8 @@ void Node::setNext(Node* next) {
 	Next = next;
 }
 
+//These overloads allow direct comparison
+//makes the code in LinkedList more readable
 bool Node::operator<(const Node& a) {
 	return Data < a.Data;
 }
