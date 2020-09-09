@@ -55,7 +55,7 @@ void LinkedList::print() {
 		}
 	}
 	else {
-		std::cout << "List is empty." << std::endl;
+		throw std::invalid_argument("List is empty.");
 	}
 }
 
