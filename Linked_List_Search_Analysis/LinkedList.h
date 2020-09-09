@@ -6,12 +6,12 @@ class LinkedList {
 private:
 	Node* Head;
 	void insert(Node* newNode);
-	Node* search(int key);
+	Node* findPreceding(int key);
 public:
 	LinkedList();
 	~LinkedList();
 	void newNode(int key, int data);
-	int find(int key);
+	Node* find(int key);
 	void remove(int key);
 	void print();
 };
