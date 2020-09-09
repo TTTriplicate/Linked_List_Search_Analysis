@@ -91,6 +91,10 @@ int main()
         int high = sizeof(a)/sizeof(int);
         int guess = -1;
         while (guess != toFind) {
+            /*Binary search takes n possibilities, and reduces it to n/2
+            and each successive iteration has half as many again until there 
+            is only the correct answer.
+            n/2 -> (n/2)/2 -> ((n/2)/2)/2 -> log_2(n) maximum iterations*/
             guess = a[(high + low) / 2];
             if (guess > toFind) {
                 high = (high + low) / 2;
