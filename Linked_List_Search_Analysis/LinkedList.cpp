@@ -62,7 +62,7 @@ void LinkedList::print() {
 Node* LinkedList::search(int key) {
 	
 	Node* currentNode = Head;
-	while (currentNode != nullptr) {//1 operation
+	while (currentNode != nullptr) {//N iterations
 		/*following the setup, this makes one comparison(with one access)
 		per iteration, and continues through the items sequentially until
 		the correct item is found.  Worst-case, this runs N times; best case, 1;

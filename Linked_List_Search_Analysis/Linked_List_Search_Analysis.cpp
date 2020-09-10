@@ -6,11 +6,7 @@
 #include "LinkedList.h"
 
 
-int* bubbleSort(int toSort[]);
-
 void swap(int& first, int& second);
-
-int binarySearch(int array[], int toFind);
 
 int main()
 {
