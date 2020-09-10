@@ -8,6 +8,9 @@
 
 void swap(int& first, int& second);
 
+//You might want to remove the console ouput of all numbers in each list
+//if testing with large numbers of generated integers
+
 int main()
 {
     const int SIZE = 1000;
@@ -35,7 +38,7 @@ int main()
     I really wasn't liking how the parameters had to be passed to do this as a function,
     so I just chose to do it in-line.  Same with the binary search.  Normally I would use a 
     vector<int> and pass by reference to a function, but the assignment specifically
-    stated to use a vector.
+    stated to use an array.
     */
     for (int j = 0; j < sizeof(a) / sizeof(int); j++) {
         changes = false;
@@ -94,12 +97,12 @@ int main()
             n/2 -> (n/2)/2 -> ((n/2)/2)/2 -> log_2(n) maximum iterations*/
             guess = a[(high + low) / 2];//4 operations
             if (guess > toFind) {       //1 operation
-                high = (high + low) / 2;//3 operations
+                high = (high + low) / 2;//3(log_2(N)-1) operations when abstracted with the else
             }
             else {
                 low = (high + low) / 2;//3 operations
             }
-        }//totals to 9(log_2 n) + 7
+        }//totals to 8(log_2 n) + 6 operations
 
         end = std::chrono::high_resolution_clock::now();
         duration = std::chrono::duration_cast<std::chrono::nanoseconds>(end - start).count();
