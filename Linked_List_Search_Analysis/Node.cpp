@@ -1,6 +1,10 @@
 #include "Node.h"
 
-Node::Node() {};
+Node::Node() {
+	Key = -1;
+	Data = -1;
+	Next = nullptr;
+};
 
 Node::Node(int key, int data) {
 	Key = key;

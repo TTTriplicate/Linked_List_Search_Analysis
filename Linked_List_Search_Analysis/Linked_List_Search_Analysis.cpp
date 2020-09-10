@@ -34,7 +34,8 @@ int main()
     /*
     I really wasn't liking how the parameters had to be passed to do this as a function,
     so I just chose to do it in-line.  Same with the binary search.  Normally I would use a 
-    vector<int> and pass by reference to a function.
+    vector<int> and pass by reference to a function, but the assignment specifically
+    stated to use a vector.
     */
     for (int j = 0; j < sizeof(a) / sizeof(int); j++) {
         changes = false;
@@ -65,6 +66,9 @@ int main()
         std::cin >> input;
         std::cout << "Finding the " << input << "th generated number in list:" << std::endl;
         Node* number;
+        /*By taking a timestamp before and after each search, I get the
+        exact time of execution in nanoseconds.  Not super helpful for the analysis
+        portion, but it gives a good at-a-glance difference.*/
         auto start = std::chrono::high_resolution_clock::now();
         try {
             number = list.search(input);
@@ -75,17 +79,14 @@ int main()
         }
         auto end = std::chrono::high_resolution_clock::now();
         auto duration = std::chrono::duration_cast<std::chrono::nanoseconds>(end - start).count();
-        /*By taking a timestamp before and after each search, I get the 
-        exact time of execution in microseconds.  Not super helpful for the analysis
-        portion, but it gives a good at-a-glance difference.*/
         std::cout << "Found item in " << duration << " nanoseconds." << std::endl;
         std::cout << "Searching array for the same number: " << number->getData() << std::endl;
         int toFind = number->getData();
         start = std::chrono::high_resolution_clock::now();
         
-        int low = 0;
-        int high = sizeof(a)/sizeof(int);
-        int guess = -1;
+        int low = 0;//1 operation
+        int high = sizeof(a)/sizeof(int);//4 operations
+        int guess = -1;//1 operation
         while (guess != toFind) {
             /*Binary search takes n possibilities, and reduces it to n/2
             and each successive iteration has half as many again until there 
