@@ -19,7 +19,7 @@ int main()
 
     for (i = 0; i < SIZE; i++)
     {
-        a[i] = rand() % 10000;
+        a[i] = rand() % (SIZE * 10);
         std::cout << a[i] << std::endl;
     }
 
