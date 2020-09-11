@@ -24,4 +24,4 @@ Pulling from my code again, the binary search pattern I wrote requires 6 operati
 
 ## Comparison
 
-Putting the differences in plain English, each iteration of the Linear Search eliminates 1 possible answer; each iteration of Binary Search eliminates $\frac{n}{2}$ possible answers.  Using 100 items as an arbitrary example, a Linear Search will take 50 iterations in an average case; in the worst case, a Binary Search will take 7.  Both have the possibility of finding the answer on the first round, but over a larger sample set the time taken by a Linear Search will grow dramatically faster than a Binary Search.
+Putting the differences in plain English, each iteration of the Linear Search eliminates 1 possible answer; each iteration of Binary Search eliminates $\frac{n}{2}$ possible answers.  Using 100 items as an arbitrary example,  in an _average_ case a Linear Search will take $ \frac{n}{2} = 50$ iterations; in the _worst_ case, a Binary Search will take $log_2(100) \approx 7$.  Both have the possibility of finding the answer on the first round, but over a larger sample set the time taken by a Linear Search will grow dramatically faster than a Binary Search.
