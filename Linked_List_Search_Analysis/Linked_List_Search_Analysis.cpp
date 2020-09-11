@@ -23,7 +23,7 @@ int main()
     for (i = 0; i < SIZE; i++)
     {
         a[i] = rand() % (SIZE * 10);
-        std::cout << a[i] << std::endl;
+        std::cout << a[i] << std::endl;//comment this line to reduce output
     }
 
     std::cout << std::endl;
@@ -53,10 +53,10 @@ int main()
         }
     }
 
-    for (int i : a)
+    for (int i : a)//comment this block to reduce output
         std::cout << i << std::endl;
 
-    list.print();
+    list.print();//comment this to reduce output
 
 
     int input = 0;
@@ -69,9 +69,9 @@ int main()
         std::cin >> input;
         std::cout << "Finding the " << input << "th generated number in list:" << std::endl;
         Node* number;
-        /*By taking a timestamp before and after each search, I get the
-        exact time of execution in nanoseconds.  Not super helpful for the analysis
-        portion, but it gives a good at-a-glance difference.*/
+        /*By taking a timestamp before and after each search, I get the exact time of 
+        start and end of execution and could calculate duration in nanoseconds. Not super 
+        helpful for the analysis portion, but it gives a good at-a-glance runtime difference.*/
         auto start = std::chrono::high_resolution_clock::now();
         try {
             number = list.search(input);
@@ -102,7 +102,7 @@ int main()
             else {
                 low = (high + low) / 2;//3 operations
             }
-        }//totals to 8(log_2 n) + 6 operations
+        }//totals to 4(log_2 n) + 6 operations
 
         end = std::chrono::high_resolution_clock::now();
         duration = std::chrono::duration_cast<std::chrono::nanoseconds>(end - start).count();
