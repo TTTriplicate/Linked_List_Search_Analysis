@@ -36,9 +36,9 @@ int main()
     bool changes;
     /*
     I really wasn't liking how the parameters had to be passed to do this as a function,
-    so I just chose to do it in-line.  Same with the binary search.  Normally I would use a 
+    so I chose to do it in-line.  Same with the binary search.  Normally I would use a 
     vector<int> and pass by reference to a function, but the assignment specifically
-    stated to use an array.
+    stated to use an array.  Functionalizing these operations with a C array is messy.
     */
     for (int j = 0; j < sizeof(a) / sizeof(int); j++) {
         changes = false;
