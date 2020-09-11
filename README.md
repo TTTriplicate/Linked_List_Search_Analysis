@@ -8,15 +8,15 @@ As written in my code, each search has 1 setup operation, 2 operations to get an
 
 Any given item will be found in the range of:
 
-* $O(2(n-1) +2n + 2) \sim O(n)$
+* $O(2(n-1) +2n + 2) \sim O(4n) \sim O(n)$
 * $\Omega(1)$
-* $\Theta(\frac{2(n-1) +2n + 2}{2}) \sim \Theta(n)$
+* $\Theta(\frac{2(n-1) +2n}{2} + 2) \sim \Theta(2n + 1) \sim \Theta(n)$
 
 ## Binary Search
 
 Because arrays are random-access, that is that any element can be accessed independently of the others, searching the sorted array can be accomplished with a binary search.  Because the binary search is a divide and conquer algorithm, its worst case time complexity is far better than that of Linear Search.
 
-Pulling from my code again, the binary search pattern I wrote requires 6 operations to start, 4 every time it generates a new guess, and 3 to reset the limits after each incorrect guess.  Each guess eliminates $\frac{\frac{n}{\text{# guesses}}}{2}$, so the final result is $4 log_2(n) + 3 log_2(n-1) + 4$.  The worst case is as written; the best case is one iteration if the number sought is dead center of the array, and the average will be half that.
+Pulling from my code again, the binary search pattern I wrote requires 6 operations to start, 4 every time it generates a new guess, and 3 to reset the limits after each incorrect guess.  Each guess eliminates $\frac{\frac{n}{\text{# guesses}}}{2}$, so the final result is $4 log_2(n) + 3 log_2(n-1) + 4$.  The worst case is as written, and will be $\lceil log_2(n) \rceil$ iterations; the best case is one iteration if the number sought is dead center of the array, and the average will be half that.
 
 * $O(4 log_2(n) + 3 log_2(n-1) + 4) \sim O(log_2n)$
 * $\Omega(1)$
