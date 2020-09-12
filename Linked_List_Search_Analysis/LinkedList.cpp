@@ -1,13 +1,20 @@
+/******************************
+Class: LinkedList.cpp
+Purpose: It's a linked list
+******************************/
+
 #include "LinkedList.h"
 #include <iostream>
 #include <exception>
 #include <string>
 
+//default constructor starts with just a nullptr
 LinkedList::LinkedList() {
 	Head = nullptr;
 }
 
 LinkedList::~LinkedList() {
+	//iteratively deletes all Nodes in the list
 	while (Head != nullptr) {
 		Node* toDelete = Head;
 		Head = Head->getNext();
@@ -16,6 +23,7 @@ LinkedList::~LinkedList() {
 };
 
 void LinkedList::insert(Node* newNode) {
+	//inserts nodes in ascending order, sorted by data value
 	if (Head == nullptr) {
 		Head = newNode;
 	}
@@ -42,11 +50,13 @@ void LinkedList::insert(Node* newNode) {
 }
 
 void LinkedList::newNode(int key, int data) {
+	//creates a new Node pointer and inserts it in the list
 	Node* newNode = new Node(key, data);
 	insert(newNode);
 }
 
 void LinkedList::print() {
+	//iteratively writes the data of all Nodes in the list to the console
 	if (Head != nullptr) {
 		Node* toRead = Head;
 		while (toRead != nullptr) {
@@ -60,7 +70,7 @@ void LinkedList::print() {
 }
 
 Node* LinkedList::search(int key) {
-	
+	//linearly searches for a given node by Key value
 	Node* currentNode = Head;
 	while (currentNode != nullptr) {//up to n iterations
 		/*following the setup, this makes one comparison(with one access)
@@ -78,6 +88,7 @@ Node* LinkedList::search(int key) {
 }//totals 2n + 2(n - 1) + 2 operations
 
 Node* LinkedList::findPreceding(int key) {
+	//Searches for the node prior to the desired node for deletion
 	Node* currentNode = Head;
 	if (currentNode->getKey() == key) {
 		throw std::runtime_error("Head match.  Readjust list.");
@@ -94,6 +105,7 @@ Node* LinkedList::findPreceding(int key) {
 }
 
 void LinkedList::remove(int key) {
+	//finds and deletes a node by key value
 	Node* toDelete;
 	try {
 		toDelete = this->findPreceding(key);

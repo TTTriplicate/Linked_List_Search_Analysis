@@ -1,3 +1,11 @@
+/*************************************
+Program: Linked_List_Search_Analysis.cpp
+Purpose: Run both a linear and binary search for 
+    mathematical analysis
+Author: Chris Sousa
+Date: 09/12/2020
+*****************************************/
+
 #include <iostream>
 #include <cstdlib>
 #include <ctime>
@@ -33,13 +41,17 @@ int main()
         list.newNode(++key, i);
     }
 
-    bool changes;
-    /*
-    I really wasn't liking how the parameters had to be passed to do this as a function,
-    so I chose to do it in-line.  Same with the binary search.  Normally I would use a 
-    vector<int> and pass by reference to a function, but the assignment specifically
-    stated to use an array.  Functionalizing these operations with a C array is messy.
-    */
+    
+/*
+I really wasn't liking how the parameters had to be passed to do this as a function,
+so I chose to do it in-line.  Same with the binary search.  Normally I would use a
+vector<int> and pass by reference to a function, but the assignment specifically
+stated to use an array.  Functionalizing these operations with a C array is messy.
+*/
+
+    /*The following block is a bubble sort.  It puts the array into ascending order
+    * one item at a time.  It will stop early if no changes are made on a given iteration.*/
+    bool changes;//a boolean to track changes for optimization of bubble sort
     for (int j = 0; j < sizeof(a) / sizeof(int); j++) {
         changes = false;
         for (int i = 0; i < sizeof(a)/sizeof(int) - 1; i++) {
@@ -48,7 +60,7 @@ int main()
                 changes = true;
             }
         }
-        if (!changes) {
+        if (!changes) {//end the sort if any iteration makes no changes
             break;
         }
     }
@@ -59,12 +71,12 @@ int main()
     list.print();//comment this to reduce output
 
 
-    int input = 0;
+    int input = 0;//catches the user's input
 
     while (input != -1) {
         std::cout << "Enter a number between 1 and " << SIZE
             << " to search for a number in the list and the array." << std::endl;
-        std::cout << "enter -1 ot exit." << std::endl;
+        std::cout << "enter -1 to exit." << std::endl;
 
         std::cin >> input;
         std::cout << "Finding the " << input << "th generated number in list:" << std::endl;
@@ -76,7 +88,7 @@ int main()
         try {
             number = list.search(input);
         }
-        catch (std::invalid_argument e) {
+        catch (std::invalid_argument e) {//any key not in the list throws this exception
             std::cout << e.what() << std::endl;
             continue;
         }
@@ -86,15 +98,15 @@ int main()
         std::cout << "Searching array for the same number: " << number->getData() << std::endl;
         int toFind = number->getData();
         start = std::chrono::high_resolution_clock::now();
-        
+
+        /*Binary search takes n possibilities, and reduces it to n/2
+        and each successive iteration has half as many again until there
+        is only the correct answer.
+        n/2 -> (n/2)/2 -> ((n/2)/2)/2 -> log_2(n) maximum iterations*/
         int low = 0;//1 operation
         int high = sizeof(a)/sizeof(int);//4 operations
         int guess = -1;//1 operation
         while (guess != toFind) {
-            /*Binary search takes n possibilities, and reduces it to n/2
-            and each successive iteration has half as many again until there 
-            is only the correct answer.
-            n/2 -> (n/2)/2 -> ((n/2)/2)/2 -> log_2(n) maximum iterations*/
             guess = a[(high + low) / 2];//4 operations
             if (guess > toFind) {       //1 operation
                 high = (high + low) / 2;//3(log_2(N)-1) operations when abstracted with the else
@@ -114,6 +126,7 @@ int main()
 }
 
 void swap(int& first, int& second) {
+    //swaps two integers by reference
     int temp = first;
     first = second;
     second = temp;

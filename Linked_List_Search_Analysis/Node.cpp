@@ -1,5 +1,11 @@
+/*********************
+Class: Node.cpp
+Pupose: Nodes for a Linked List
+*********************/
+
 #include "Node.h"
 
+//default and parameterized constructors
 Node::Node() {
 	Key = -1;
 	Data = -1;
@@ -18,6 +24,7 @@ Node::Node(int key, int data, Node* next) {
 	Next = next;
 }
 
+//destructor
 Node::~Node() {
 	Next = nullptr;
 	delete Next;
